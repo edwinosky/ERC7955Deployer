@@ -20,9 +20,14 @@ while (true) {
   const salt = toHex(i, { size: 32 }); // Uint → bytes32
   const addr = computeAddress(FACTORY, salt, initCodeHash);
 
-  if (addr.startsWith("0xre5cue") || addr.endsWith("7702")) {
-    console.log("Encontrado!", salt, addr);
-    break;
-  }
+  if (addr.startsWith("0x000") && addr.endsWith("000")) {
+  console.log("Encontrado!", salt, addr);
+  break;
+}
+/// una coincidencia más "fácil":
+  // if (addr.startsWith("0x000") || addr.endsWith("0000")) {
+  //   console.log("Encontrado!", salt, addr);
+  //   break;
+  // }
   i++;
 }
